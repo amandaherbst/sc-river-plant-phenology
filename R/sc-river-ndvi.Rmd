@@ -262,7 +262,7 @@ sites_clean <- sites_annotated %>%
 #### plot results
 
 ```{r include=TRUE}
-ggplot(data = sites_clean,
+p1 <- ggplot(data = sites_clean,
        aes(x = date, y = NDVI,
            group = study_site,
            col = study_site)) +
@@ -272,5 +272,9 @@ ggplot(data = sites_clean,
        y = "Normalized Difference Vegetation Index (NDVI)",
        col = "Vegetation Type",
        title = "Seasonal cycles of vegetation productivity")
+
+p1
+
+ggsave("seasonal_productivity.png", plot = p1, path = "../Output")
 ```
 
